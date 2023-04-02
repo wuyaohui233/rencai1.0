@@ -30,8 +30,8 @@ public class RencaiServiceImpl implements RencaiService {
 
     /**
      * 添加企业认证信息
-     * @param unit
-     * @return
+     * @param unit 企业实体类
+     * @return 结果
      */
     @Override
     @Transactional(rollbackFor=Exception.class)
@@ -76,7 +76,7 @@ public class RencaiServiceImpl implements RencaiService {
             String loginName = user.getName();
             String user_id_str = String.valueOf(user_id);
             String token = JwtUtil.sign(loginName, user_id_str, "专家");
-            Map<String,Object> map = new HashMap<String,Object>();
+            Map<String,Object> map = new HashMap<>();
             map.put("token",token);
             return Result.ok(map);
         }else{
@@ -130,7 +130,7 @@ public class RencaiServiceImpl implements RencaiService {
             String loginName = user.getName();
             String user_id_str = String.valueOf(user_id);
             String token = JwtUtil.sign(loginName, user_id_str, "专家");
-            Map<String,Object> map = new HashMap<String,Object>();
+            Map<String,Object> map = new HashMap<>();
             map.put("token",token);
             return Result.ok(map);
         }else{

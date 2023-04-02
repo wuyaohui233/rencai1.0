@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public Map<String,Object> InsertUser(User user) {
-		Map<String,Object> map = new HashMap<String,Object>();
+		Map<String,Object> map = new HashMap<>();
 		
 		String name = user.getName();
 		if(name == null || name.equals("")) {
@@ -64,7 +64,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public Map<String,Object> QueryMsg(String name, String password) {
-		Map<String,Object> map = new HashMap<String,Object>();
+		Map<String,Object> map = new HashMap<>();
 		User queryMsg = uMapper.QueryMsg(name, password);
 		if(queryMsg!= null) {
 			if(queryMsg.getStatus().equals("封禁")) {
