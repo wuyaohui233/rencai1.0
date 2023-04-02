@@ -25,18 +25,6 @@ public class RencaiController {
     @Autowired
     private RencaiService rService;
 
-    /**
-     * 企事业单位申请认证
-     * @param unit
-     * @return
-     * @throws IOException
-     */
-    @RequestMapping(value="/unitApprove.do",produces={"application/json;charset=UTF-8"})
-    @ResponseBody
-    public Result<Object> unitApprove(Unit unit, User user) throws IOException {
-
-        return null;
-    }
 
     /**
      * 外籍专家申请认证
