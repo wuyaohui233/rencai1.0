@@ -34,13 +34,6 @@ public class RencaiController {
     @RequestMapping(value="/unitApprove.do",produces={"application/json;charset=UTF-8"})
     @ResponseBody
     public Result<Object> unitApprove(Unit unit, User user) throws IOException {
-        //添加企事业单位申请记录
-        Result<Object> objectResult =null;
-        try{
-            objectResult = rService.addUnitApprove(unit,user);
-        }catch (Exception e){
-            return Result.fail(e.getMessage(), ResultCodeEnum.ARGUMENT_VALID_ERROR);
-        }
 
         return null;
     }
