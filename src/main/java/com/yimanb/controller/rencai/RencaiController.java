@@ -27,6 +27,7 @@ public class RencaiController {
 
     /**
      * 企事业单位申请认证
+     * 注册用户 并返回token
      * @param unit 企事业单位实体类
      * @return
      * @throws IOException
@@ -46,7 +47,8 @@ public class RencaiController {
 
     /**
      * 外籍专家申请认证
-     * @param unit
+     * 注册用户 并返回token
+     * @param expert 专家实体类
      * @return
      * @throws IOException
      */
@@ -54,13 +56,18 @@ public class RencaiController {
     @ResponseBody
     public Result<Object> expertApprove(Expert expert, User user) throws IOException {
         //添加企事业单位申请记录
-        Result<Object> objectResult = rService.addExpertApprove(expert,user);
+        Result<Object>objectResult=null;
+        try{
+            objectResult=rService.addExpertApprove(expert,user);
+        }catch(Exception e){
+            return Result.fail(e.getMessage(),ResultCodeEnum.ARGUMENT_VALID_ERROR);
+        }
         return objectResult;
     }
 
     /**
      * 企事业单位申请查看专家信息
-     * @param unit
+     * @param token 外企专家token
      * @return
      * @throws IOException
      */
