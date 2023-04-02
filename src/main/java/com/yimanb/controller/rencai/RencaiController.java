@@ -25,6 +25,24 @@ public class RencaiController {
     @Autowired
     private RencaiService rService;
 
+    /**
+     * 企事业单位申请认证
+     * @param unit 企事业单位实体类
+     * @return
+     * @throws IOException
+     */
+    @RequestMapping(value="/unitApprove.do",produces={"application/json;charset=UTF-8"})
+    @ResponseBody
+    public Result<Object> unitApprove(Unit unit, User user) throws IOException {
+        //添加企事业单位申请记录
+        Result<Object>objectResult=null;
+        try{
+            objectResult=rService.addUnitApprove(unit,user);
+        }catch(Exception e){
+            return Result.fail(e.getMessage(),ResultCodeEnum.ARGUMENT_VALID_ERROR);
+        }
+        return objectResult;
+    }
 
     /**
      * 外籍专家申请认证
