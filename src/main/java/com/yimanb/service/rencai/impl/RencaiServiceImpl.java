@@ -22,9 +22,6 @@ public class RencaiServiceImpl implements RencaiService {
     @Autowired(required = false)
     private RencaiMapper rMapper;
 
-    /**
-     * 用户方法
-     */
     @Autowired(required = false)
     private UserMapper uMapper;
 

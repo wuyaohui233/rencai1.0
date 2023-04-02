@@ -13,6 +13,11 @@ public class Unit {
         private Integer id;
 
         /**
+         * 邮箱
+         */
+        private String email;
+
+        /**
          * 用户id
          */
         private Integer user_id;
