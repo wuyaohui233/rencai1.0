@@ -36,7 +36,7 @@ public class RencaiController {
     @ResponseBody
     public Result<Object> unitApprove(Unit unit, User user) throws IOException {
         //添加企事业单位申请记录
-        Result<Object>objectResult=null;
+        Result<Object> objectResult;
         try{
             objectResult=rService.addUnitApprove(unit,user);
         }catch(Exception e){
@@ -56,7 +56,7 @@ public class RencaiController {
     @ResponseBody
     public Result<Object> expertApprove(Expert expert, User user) throws IOException {
         //添加企事业单位申请记录
-        Result<Object>objectResult=null;
+        Result<Object> objectResult;
         try{
             objectResult=rService.addExpertApprove(expert,user);
         }catch(Exception e){
