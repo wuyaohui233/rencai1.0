@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yimanb.mapper.admin.AdminMapper">
+	
+	<select id="QueryAdminLogin" parameterType="string" resultType="admin">
+		select name,type from admin where name = #{name} and password = #{pwd}
+	</select>
+	
+	<update id="UpdatePwdAdmin">
+		update admin set password = #{new_pwd} where name = #{name} and password = #{pwd}
+	</update>
+	
+	<select id="QueryUserAdmin" parameterType="user" resultType="user">
+		select
+			 	id,
+				id_card,
+				phone,
+				name,
+				password,
+				sex,
+				type,
+				status,
+				data_date,
+				DATE_FORMAT(data_time,'%Y-%m-%d %T') as data_time
+		from user
+		<trim prefix="where" prefixOverrides="and || or">
+			<if test="user.id!=null and user.id!=''">
+				id = #{user.id} 
+			</if>
+			<if test="user.phone!=null and user.phone!=''">
+				and phone = #{user.phone} 
+			</if>
+			<if test="user.name!=null and user.name!=''">
+				and name like CONCAT('%','${user.name}','%')
+			</if>
+			<if test="user.sex!=null and user.sex!=''">
+				and sex = #{user.sex}
+			</if>
+			<if test="user.type!=null and user.type!=''">
+				and type = #{user.type}
+			</if>
+			<if test="user.data_date!=null and user.data_date!=''">
+				and data_date = #{user.data_date}
+			</if>
+		</trim>
+		limit #{skip_size},#{page_size}
+	</select>
+</mapper>
