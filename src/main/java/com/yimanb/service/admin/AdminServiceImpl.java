@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class AdminServiceImpl implements AdminService {
 	
-	@Autowired
+	@Autowired(required = false)
 	private AdminMapper aMapper;
 
 	@Override

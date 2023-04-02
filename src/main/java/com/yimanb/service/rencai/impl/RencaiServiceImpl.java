@@ -19,10 +19,13 @@ import java.util.Map;
 @Service
 public class RencaiServiceImpl implements RencaiService {
 
-    @Autowired
+    @Autowired(required = false)
     private RencaiMapper rMapper;
 
-    @Autowired
+    /**
+     * 用户方法
+     */
+    @Autowired(required = false)
     private UserMapper uMapper;
 
     /**
